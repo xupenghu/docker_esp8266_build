@@ -4,7 +4,7 @@ MAINTAINER hubertxxu<xupenghu@outlook.com>
 ENV MYPATH /usr/home  
 WORKDIR $MYPATH         
 
-COPY readme.md  /usr/home/readme.md
+COPY readme.md  /usr/home/README.md
 
 ADD xtensa-lx106-elf-linux64-1.22.0-92-g8facf4c-5.2.0.tar.gz /opt/toolchain/
 ADD gperf-3.1.tar.gz /opt/
