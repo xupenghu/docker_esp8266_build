@@ -60,6 +60,6 @@ python /home/esp8266/ESP8266_RTOS_SDK/components/esptool_py/esptool/esptool.py -
 当然你也可以直接从docker hub上获取该镜像直接使用
 
 ```shell
-docker push hubertxxu/esp8266_build:0.1
+docker pull hubertxxu/esp8266_build:0.1
 ```
 
