@@ -10,6 +10,8 @@ ADD xtensa-lx106-elf-linux64-1.22.0-92-g8facf4c-5.2.0.tar.gz /opt/toolchain/
 ADD gperf-3.1.tar.gz /opt/
 ADD ESP8266_RTOS_SDK.tar.gz /home/esp8266/
 
+RUN sed -i -e "s|mirrorlist=|#mirrorlist=|g" /etc/yum.repos.d/CentOS-*
+RUN sed -i -e "s|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g" /etc/yum.repos.d/CentOS-*
 
 RUN yum -y install gcc git wget make ncurses-devel flex bison python36 gcc-c++
 
@@ -24,6 +26,11 @@ RUN make&&make install
 
 ENV IDF_PATH=/home/esp8266/ESP8266_RTOS_SDK
 ENV PATH=$PATH:/opt/toolchain/xtensa-lx106-elf/bin
+
+RUN chmod +x /home/esp8266/ESP8266_RTOS_SDK/tools/kconfig/mconf
+RUN chmod +x /home/esp8266/ESP8266_RTOS_SDK/tools/kconfig/conf
+
+RUN cd /home/
 
 CMD echo "----end----"
 CMD /bin/bash
